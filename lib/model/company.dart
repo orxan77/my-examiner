@@ -6,6 +6,7 @@ class Company {
   final String location;
   final String backgroundPhoto;
   final String about;
+  final String logo;
   final List<CompanyService> services;
 
   Company(
@@ -13,5 +14,6 @@ class Company {
       @required this.location,
       @required this.backgroundPhoto,
       @required this.about,
+      @required this.logo,
       @required this.services});
 }

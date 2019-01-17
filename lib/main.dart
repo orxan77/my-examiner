@@ -16,7 +16,9 @@ class MyApp extends StatelessWidget {
 
         primarySwatch: Colors.blue,
       ),
-      home: new CompanyDetailsAnimator(),
+      home: new Scaffold(
+        body: new CompanyDetailsAnimator(),
+      )
     );
   }
 }

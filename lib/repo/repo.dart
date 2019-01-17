@@ -8,6 +8,7 @@ class RepoData {
           "We are always here to help if you are stuck in Writing or Speaking. Get your papers checked in less than 48 hours!",
       location: "Baku, Azerbaijan",
       backgroundPhoto: "assets/background.jpg",
+      logo: "assets/speaking.jpg",
       services: <CompanyService>[
         new CompanyService(
             thumbnail: "assets/writing.jpg", title: "Writing", url: ""),
