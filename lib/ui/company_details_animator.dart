@@ -15,7 +15,11 @@ class _CompanyDetailsAnimatorState extends State<CompanyDetailsAnimator>
   void initState() {
     super.initState();
     _controller = AnimationController(
-        vsync: this, duration: new Duration(milliseconds: 2000));
+      vsync: this,
+      duration: Duration(milliseconds: 1500),
+    );
+
+    _controller.forward();
   }
 
   @override
@@ -28,6 +32,7 @@ class _CompanyDetailsAnimatorState extends State<CompanyDetailsAnimator>
   Widget build(BuildContext context) {
     return Container(
       child: new CompanyDetailsPage(
+        candidate: RepoData.candidate,
         company: RepoData.myExaminer,
         controller: _controller,
       ),
