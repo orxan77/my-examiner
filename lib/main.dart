@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'ui/company_details_animator.dart';
-import 'ui/writing_page.dart';
+import 'ui/speaking_det_page.dart';
+import 'ui/writing_det_page.dart';
 
 void main() => runApp(MyApp());
 
@@ -13,7 +14,8 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => new CompanyDetailsAnimator(),
-        '/writing': (context) => new WritingPage()
+        '/writing': (context) => new WritingDetailsPage(),
+        '/speaking': (context) => new SpeakingDetailsPage()
       },
       theme: ThemeData(
         primarySwatch: Colors.blue,

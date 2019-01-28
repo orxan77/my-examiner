@@ -12,9 +12,9 @@ class RepoData {
       logo: "assets/logo.jpg",
       services: <CompanyService>[
         new CompanyService(
-            thumbnail: "assets/writing_logo.png", title: "Check your Task 1 and Task 2 essays!", url: "https://www.google.com"),
+            thumbnail: "assets/writing_logo.png", title: "Check your Task 1 and Task 2 essays!", navigationUrl: '/writing'),
         new CompanyService(
-            thumbnail: "assets/speaking.jpg", title: "Speaking", url: "https://www.google.com")
+            thumbnail: "assets/speaking_logo.png", title: "Test your speaking skills by recording your 2 minutes long speech!", navigationUrl: '/speaking')
       ]);
 
   static final Candidate candidate = new Candidate(

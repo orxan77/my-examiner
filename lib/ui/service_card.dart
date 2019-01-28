@@ -16,7 +16,7 @@ class CompanyServiceCard extends StatelessWidget {
       child: new Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          _createThumbnail(),
+          _createThumbnail(context),
           _createCourseInfo(),
         ],
       ),
@@ -33,12 +33,13 @@ class CompanyServiceCard extends StatelessWidget {
         ]);
   }
 
-  Widget _createThumbnail() {
+  Widget _createThumbnail(BuildContext context) {
     return new ClipRRect(
       borderRadius: new BorderRadius.circular(8.0),
       child: new Stack(
         children: <Widget>[
           new Image.asset(service.thumbnail),
+          _createGoToButton(context)
         ],
       ),
     );
@@ -50,9 +51,22 @@ class CompanyServiceCard extends StatelessWidget {
       child: new Text(
         service.title,
         textAlign: TextAlign.center,
-        style:
-            new TextStyle(color: Colors.white.withOpacity(0.8), fontSize: 20.0,
+        style: new TextStyle(
+            color: Colors.white.withOpacity(0.8),
+            fontSize: 20.0,
             fontWeight: FontWeight.w600),
+      ),
+    );
+  }
+
+  Widget _createGoToButton(BuildContext context) {
+    return new CircleAvatar(
+      backgroundColor: Colors.red,
+      child: new GestureDetector(
+        onTap: () {
+          Navigator.pushNamed(context, service.navigationUrl);
+          debugPrint("${service.navigationUrl} pressed");
+        },
       ),
     );
   }
