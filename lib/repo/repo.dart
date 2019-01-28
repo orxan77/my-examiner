@@ -12,7 +12,7 @@ class RepoData {
       logo: "assets/logo.jpg",
       services: <CompanyService>[
         new CompanyService(
-            thumbnail: "assets/writing.jpg", title: "Task 1 and 2 under the name of Academic Writing for IELTS", url: "https://www.google.com"),
+            thumbnail: "assets/writing_logo.png", title: "Check your Task 1 and Task 2 essays!", url: "https://www.google.com"),
         new CompanyService(
             thumbnail: "assets/speaking.jpg", title: "Speaking", url: "https://www.google.com")
       ]);

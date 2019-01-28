@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => new CompanyDetailsAnimator(),
         '/writing': (context) => new WritingPage()
-        },
+      },
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),

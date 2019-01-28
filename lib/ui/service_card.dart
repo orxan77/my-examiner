@@ -9,21 +9,15 @@ class CompanyServiceCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 175.0,
+      width: 200.0,
       decoration: _createShadowRoundCorners(),
-      margin: EdgeInsets.only(left: 16.0),
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(16.0),
+      margin: const EdgeInsets.all(32.0),
       child: new Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          Flexible(
-            flex: 3,
-            child: _createThumbnail(),
-          ),
-          Flexible(
-            flex: 2,
-            child: _createCourseInfo(),
-          )
+          _createThumbnail(),
+          _createCourseInfo(),
         ],
       ),
     );
@@ -45,31 +39,20 @@ class CompanyServiceCard extends StatelessWidget {
       child: new Stack(
         children: <Widget>[
           new Image.asset(service.thumbnail),
-          new Positioned(
-            bottom: 12.0,
-            right: 12.0,
-            child: _createLinkButton(),
-          )
         ],
       ),
     );
   }
 
-  Widget _createLinkButton() {
-    return new Material(
-      color: Colors.white24,
-      type: MaterialType.circle,
-      child: new IconButton(icon: new Icon(Icons.link), onPressed: () {}),
-    );
-  }
-
   Widget _createCourseInfo() {
     return new Padding(
-      padding: const EdgeInsets.only(top: 16.0, left: 4.0, right: 4.0),
+      padding: const EdgeInsets.only(top: 4.0, left: 4.0, right: 4.0),
       child: new Text(
         service.title,
-        textAlign: TextAlign.justify,
-        style: new TextStyle(color: Colors.white.withOpacity(0.8)),
+        textAlign: TextAlign.center,
+        style:
+            new TextStyle(color: Colors.white.withOpacity(0.8), fontSize: 20.0,
+            fontWeight: FontWeight.w600),
       ),
     );
   }

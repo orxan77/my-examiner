@@ -46,13 +46,15 @@ class CompanyDetailsPage extends StatelessWidget {
   }
 
   Widget _createContent(BuildContext context) {
-    return new SingleChildScrollView(
-      child: new Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+    return new Padding(
+      padding: EdgeInsets.only(top: 16.0),
+      child: new Flex(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        direction: Axis.vertical,
         children: <Widget>[
           _createLogoAvatar(context),
           _createAboutCompany(),
-          _createServiceScroller()
+          _createServiceScroller(),
         ],
       ),
     );
@@ -66,8 +68,8 @@ class CompanyDetailsPage extends StatelessWidget {
         child: new Container(
           width: double.infinity,
           height: 150.0,
-          margin: const EdgeInsets.only(top: 32.0, left: 16.0, right: 16.0),
-          padding: const EdgeInsets.all(3.0),
+          margin: const EdgeInsets.only(top: 8.0, left: 16.0, right: 16.0),
+          padding: const EdgeInsets.all(4.0),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
@@ -132,7 +134,7 @@ class CompanyDetailsPage extends StatelessWidget {
 
   Widget _createAboutCompany() {
     return new Padding(
-      padding: const EdgeInsets.only(top: 16.0, left: 16.0, right: 16.0),
+      padding: const EdgeInsets.all(16.0),
       child: new Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
@@ -142,10 +144,12 @@ class CompanyDetailsPage extends StatelessWidget {
                   fontSize: 30.0 * animation.avatarSize.value + 2.0,
                   fontWeight: FontWeight.bold)),
           new Text(company.location,
+              textAlign: TextAlign.justify,
               style: new TextStyle(
-                  color:
-                      Colors.white.withOpacity(animation.locationOpacity.value),
-                  fontWeight: FontWeight.w500)),
+                color:
+                    Colors.white.withOpacity(animation.locationOpacity.value),
+                fontWeight: FontWeight.w500,
+              )),
           new Container(
             margin: const EdgeInsets.only(top: 8.0, bottom: 8.0),
             height: 1.0,
@@ -163,22 +167,18 @@ class CompanyDetailsPage extends StatelessWidget {
   }
 
   Widget _createServiceScroller() {
-    return new Padding(
-      padding: const EdgeInsets.only(top: 16.0),
+    return new Expanded(
       child: Transform(
         transform: new Matrix4.translationValues(
             animation.courseScrollerXTranslation.value, 0.0, 0.0),
-        child: new SizedBox.fromSize(
-          size: new Size.fromHeight(200.0),
-          child: new ListView.builder(
-            scrollDirection: Axis.horizontal,
-            padding: const EdgeInsets.symmetric(horizontal: 8.0),
-            itemCount: company.services.length,
-            itemBuilder: (BuildContext context, int index) {
-              var service = company.services[index];
-              return new CompanyServiceCard(service);
-            },
-          ),
+        child: new ListView.builder(
+          scrollDirection: Axis.vertical,
+          itemCount: company.services.length,
+          padding: EdgeInsets.symmetric(vertical: 16.0),
+          itemBuilder: (BuildContext context, int index) {
+            var service = company.services[index];
+            return new CompanyServiceCard(service);
+          },
         ),
       ),
     );
