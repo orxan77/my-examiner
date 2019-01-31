@@ -40,24 +40,41 @@ class CompanyDetailsPage extends StatelessWidget {
               sigmaY: animation.backgroundBlur.value),
           child: new Container(
             color: Colors.black.withOpacity(0.3),
-            child: _createContent(context),
+            child: _createContent(),
           )),
     ]);
   }
 
-  Widget _createContent(BuildContext context) {
-    return new Padding(
-      padding: EdgeInsets.only(top: 16.0),
-      child: new Flex(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        direction: Axis.vertical,
-        children: <Widget>[
-          _createLogoAvatar(context),
-          _createAboutCompany(),
-          _createServiceScroller(),
-        ],
+  Widget _createContent() {
+    return new Transform(
+      transform: new Matrix4.translationValues(0.0, 0.0, 0.0),
+      child: new ListView.builder(
+        scrollDirection: Axis.vertical,
+        itemCount: company.services.length + 1,
+        padding: EdgeInsets.symmetric(vertical: 16.0),
+        itemBuilder: (BuildContext context, int index) {
+          if (index == 0) {
+            return _createUpperPart(context);
+          } else {
+            return _createLowerListPart(index);
+          }
+        },
       ),
     );
+  }
+
+  Widget _createUpperPart(BuildContext context) {
+    return new Column(
+      children: <Widget>[
+        _createLogoAvatar(context),
+        _createAboutCompany(),
+      ],
+    );
+  }
+
+  Widget _createLowerListPart(int index) {
+    var service = company.services[index - 1];
+    return new CompanyServiceCard(service);
   }
 
   Widget _createLogoAvatar(BuildContext context) {
@@ -73,13 +90,19 @@ class CompanyDetailsPage extends StatelessWidget {
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              new Container(
-                width: 100.0,
-                height: 100.0,
-                child: new CircleAvatar(
-                  backgroundImage: AssetImage(candidate.profilePicture),
-                ),
-              ),
+              new InkWell(
+                  onTap: () {
+                    Navigator.pushNamed(context, '/profile');
+                  },
+                  child: new Container(
+                    width: 100.0,
+                    height: 100.0,
+                    child: new Hero(
+                        tag: 'tag_profile_photo',
+                        child: new CircleAvatar(
+                          backgroundImage: AssetImage(candidate.profilePicture),
+                        )),
+                  )),
               new Flexible(
                 child: new Container(
                     margin: const EdgeInsets.only(left: 8.0),
@@ -127,14 +150,14 @@ class CompanyDetailsPage extends StatelessWidget {
         ),
       ),
       onTap: () {
-        Navigator.pushNamed(context, '/writing');
+        Navigator.pushNamed(context, '/profile');
       },
     );
   }
 
   Widget _createAboutCompany() {
     return new Padding(
-      padding: const EdgeInsets.all(16.0),
+      padding: const EdgeInsets.only(left: 16.0, right: 16.0, bottom: 16.0),
       child: new Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
@@ -162,24 +185,6 @@ class CompanyDetailsPage extends StatelessWidget {
                   fontSize: 16.0,
                   height: 1.2))
         ],
-      ),
-    );
-  }
-
-  Widget _createServiceScroller() {
-    return new Expanded(
-      child: Transform(
-        transform: new Matrix4.translationValues(
-            animation.courseScrollerXTranslation.value, 0.0, 0.0),
-        child: new ListView.builder(
-          scrollDirection: Axis.vertical,
-          itemCount: company.services.length,
-          padding: EdgeInsets.symmetric(vertical: 16.0),
-          itemBuilder: (BuildContext context, int index) {
-            var service = company.services[index];
-            return new CompanyServiceCard(service);
-          },
-        ),
       ),
     );
   }

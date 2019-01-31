@@ -8,17 +8,23 @@ class CompanyServiceCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 200.0,
-      decoration: _createShadowRoundCorners(),
-      padding: const EdgeInsets.all(16.0),
-      margin: const EdgeInsets.all(32.0),
-      child: new Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
-          _createThumbnail(context),
-          _createCourseInfo(),
-        ],
+    return new GestureDetector(
+      onTap: () {
+        Navigator.pushNamed(context, service.navigationUrl);
+        debugPrint("${service.navigationUrl} pressed");
+      },
+      child: new Container(
+        width: 200.0,
+        decoration: _createShadowRoundCorners(),
+        padding: const EdgeInsets.all(16.0),
+        margin: const EdgeInsets.all(32.0),
+        child: new Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            _createThumbnail(context),
+            _createCourseInfo(),
+          ],
+        ),
       ),
     );
   }
@@ -39,7 +45,6 @@ class CompanyServiceCard extends StatelessWidget {
       child: new Stack(
         children: <Widget>[
           new Image.asset(service.thumbnail),
-          _createGoToButton(context)
         ],
       ),
     );

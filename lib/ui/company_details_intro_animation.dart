@@ -27,10 +27,10 @@ class CompanyDetailsIntroAnimation {
             new CurvedAnimation(
                 parent: controller,
                 curve: new Interval(0.450, 0.800, curve: Curves.easeIn))),
-        courseScrollerXTranslation = new Tween(begin: 60.0, end: 0.0).animate(
+        courseScrollerXTranslation = new Tween(begin: 400.0, end: 0.0).animate(
             new CurvedAnimation(
                 parent: controller,
-                curve: new Interval(0.800, 1.000, curve: Curves.easeIn))),
+                curve: new Interval(0.700, 0.900, curve: Curves.easeIn))),
         courseScrollerOpacity = new Tween(begin: 0.0, end: 1.0).animate(
             new CurvedAnimation(
                 parent: controller,
