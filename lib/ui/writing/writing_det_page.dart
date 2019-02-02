@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:my_examiner/repo/repo.dart';
 
 class WritingDetailsPage extends StatefulWidget {
   @override

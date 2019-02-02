@@ -63,16 +63,4 @@ class CompanyServiceCard extends StatelessWidget {
       ),
     );
   }
-
-  Widget _createGoToButton(BuildContext context) {
-    return new CircleAvatar(
-      backgroundColor: Colors.red,
-      child: new GestureDetector(
-        onTap: () {
-          Navigator.pushNamed(context, service.navigationUrl);
-          debugPrint("${service.navigationUrl} pressed");
-        },
-      ),
-    );
-  }
 }

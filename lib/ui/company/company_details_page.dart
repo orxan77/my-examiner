@@ -3,9 +3,9 @@ import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 import 'package:my_examiner/model/company.dart';
-import 'package:my_examiner/ui/company_details_intro_animation.dart';
+import 'package:my_examiner/ui/company/company_details_intro_animation.dart';
 import 'package:my_examiner/model/candidate.dart';
-import 'package:my_examiner/ui/service_card.dart';
+import 'package:my_examiner/ui/company/service_card.dart';
 
 class CompanyDetailsPage extends StatelessWidget {
   final Candidate candidate;
@@ -91,18 +91,15 @@ class CompanyDetailsPage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               new InkWell(
-                  onTap: () {
-                    Navigator.pushNamed(context, '/profile');
-                  },
                   child: new Container(
-                    width: 100.0,
-                    height: 100.0,
-                    child: new Hero(
-                        tag: 'tag_profile_photo',
-                        child: new CircleAvatar(
-                          backgroundImage: AssetImage(candidate.profilePicture),
-                        )),
-                  )),
+                width: 100.0,
+                height: 100.0,
+                child: new Hero(
+                    tag: 'tag_profile_photo',
+                    child: new CircleAvatar(
+                      backgroundImage: AssetImage(candidate.profilePicture),
+                    )),
+              )),
               new Flexible(
                 child: new Container(
                     margin: const EdgeInsets.only(left: 8.0),
