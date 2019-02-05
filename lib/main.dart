@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
         '/profile':(context) => new ProfileDetailsAnimator()
       },
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.green,
       ),
     );
   }

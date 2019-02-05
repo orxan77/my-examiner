@@ -18,11 +18,10 @@ class _ProfileDetailsAnimatorState extends State<ProfileDetailsAnimator>
         vsync: this, duration: new Duration(milliseconds: 1000));
     _controller.forward();
   }
-
   @override
   void dispose() {
-    super.dispose();
     _controller.dispose();
+    super.dispose();
   }
 
   @override
