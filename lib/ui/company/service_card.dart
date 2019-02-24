@@ -15,14 +15,22 @@ class CompanyServiceCard extends StatelessWidget {
       },
       child: new Container(
         width: 200.0,
+        height: 300.0,
         decoration: _createShadowRoundCorners(),
         padding: const EdgeInsets.all(16.0),
-        margin: const EdgeInsets.all(32.0),
-        child: new Column(
+        margin: const EdgeInsets.all(24.0),
+        child: new Flex(
+          direction: Axis.vertical,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            _createThumbnail(context),
-            _createCourseInfo(),
+            new Expanded(
+              flex: 3,
+              child: _createThumbnail(context),
+            ),
+            new Expanded(
+              flex: 1,
+              child: _createCourseInfo(),
+            ),
           ],
         ),
       ),

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'ui/company/company_details_animator.dart';
 import 'package:my_examiner/ui/profile/profile_det_animator.dart';
+import 'package:my_examiner/ui/writing/writing_det_page.dart';
+
 
 void main() => runApp(MyApp());
 
@@ -13,10 +15,11 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => new CompanyDetailsAnimator(),
-        '/profile':(context) => new ProfileDetailsAnimator()
+        '/profile':(context) => new ProfileDetailsAnimator(),
+        '/writing':(context) => new WritingDetailsPage()
       },
       theme: ThemeData(
-        primarySwatch: Colors.green,
+        primarySwatch: Colors.blue,
       ),
     );
   }

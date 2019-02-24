@@ -4,15 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:my_examiner/repo/repo.dart';
 import 'package:meta/meta.dart';
 import 'package:my_examiner/model/candidate.dart';
-import 'package:my_examiner/ui/profile/profile_det_animation.dart';
 import 'package:my_examiner/ui/profile/profile_list_entry_card.dart';
 
 class ProfileDetailsPage extends StatelessWidget {
-  final ProfileDetailsAnimation animation;
   final Candidate candidate;
 
-  ProfileDetailsPage({@required this.candidate, AnimationController controller})
-      : animation = new ProfileDetailsAnimation(controller);
+  ProfileDetailsPage({@required this.candidate});
 
   @override
   Widget build(BuildContext context) {

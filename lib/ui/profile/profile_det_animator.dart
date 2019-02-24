@@ -29,7 +29,6 @@ class _ProfileDetailsAnimatorState extends State<ProfileDetailsAnimator>
     return new Container(
         child: new ProfileDetailsPage(
       candidate: RepoData.candidate,
-      controller: _controller,
     ));
   }
 }
